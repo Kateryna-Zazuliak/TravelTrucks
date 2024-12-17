@@ -1,0 +1,15 @@
+.header {
+  margin: 0;
+  padding: 0;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  border: 1px solid #f2f4f7;
+}
+.nav {
+  display: flex;
+  margin-left: 64px;
+  align-items: center;
+}
