@@ -33,7 +33,7 @@ ul {
 button {
   border-radius: 200px;
   border: none;
-  font-family: inherit;
+  font-family: Inter, sans-serif;
   cursor: pointer;
 }
 img {
