@@ -1,0 +1,85 @@
+.vehicle {
+  min-width: 366px;
+  min-height: 272px;
+  margin-bottom: 32px;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 12px;
+  max-width: 366px;
+}
+.vehicle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dadde1;
+  border-radius: 12px;
+  width: 112px;
+  height: 96px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.icon {
+  fill: #101828;
+}
+input[value="AC"] + svg {
+  stroke: #101828;
+}
+input[value="Microwave"] + svg {
+  stroke: #101828;
+  fill: #ffffff;
+}
+input[value="Gas"] + svg {
+  stroke: #101828;
+  fill: #ffffff;
+}
+input[value="Water"] + svg {
+  stroke: #101828;
+  fill: #ffffff;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin-top: 8px;
+}
+.divider {
+  fill: #dadde1;
+  margin-bottom: 24px;
+}
+
+.item:hover,
+.item:focus {
+  border: 1px solid #e44848;
+}
+.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid #e44848;
+  width: 112px;
+  height: 96px;
+  transition: border-color 0.3s ease;
+}

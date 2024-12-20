@@ -10,23 +10,19 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import {
-  camperReducer,
-  filtersReducer,
-  selectedReducer,
-} from "./campers/slice.js";
+import { campersReducer } from "./campers/slice.js";
+import { filtersReducer } from "./filters/slice.js";
 
-const selectedConfig = {
-  key: "selectedKey",
+const campersConfig = {
+  key: "campers",
   storage,
   whitelist: ["selected"],
 };
 
 export const store = configureStore({
   reducer: {
-    campers: camperReducer,
+    campers: persistReducer(campersConfig, campersReducer),
     filters: filtersReducer,
-    selected: persistReducer(selectedConfig, selectedReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

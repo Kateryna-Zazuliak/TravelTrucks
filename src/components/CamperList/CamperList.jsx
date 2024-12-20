@@ -1,25 +1,17 @@
-// import { useSelector } from "react-redux";
-// import Contact from "../Contact/Contact";
-import css from "./ContactList.module.css";
-// import { selectFilteredContacts } from "../../redux/contacts/selectors";
+import Camper from "../Camper/Camper";
+import css from "./CamperList.module.css";
 
-const CamperList = () => {
-  //   const filteredContacts = useSelector(selectFilteredContacts);
-
+const CamperList = ({ campers }) => {
   return (
-    <div className={css.phoneBook}>
-      {/* {filteredContacts?.length === 0 && <p>Contacts list is empty.</p>}
-      {Array.isArray(filteredContacts) &&
-        filteredContacts.map((contact) => (
-          <Contact
-            key={contact.id}
-            id={contact.id}
-            name={contact.name}
-            number={contact.number}
-          /> */}
-      {/* ))} */}
-    </div>
+    <ul className={css.campersList}>
+      {campers.map((camper) => {
+        return (
+          <li key={camper.id}>
+            <Camper camper={camper} />
+          </li>
+        );
+      })}
+    </ul>
   );
 };
-
 export default CamperList;

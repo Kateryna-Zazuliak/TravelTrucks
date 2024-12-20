@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchCampers, fetchCamperDetails } from "./operations.js";
 const INITIAL_STATE = {
   items: [],
-  selected: null,
+  selected: [],
   isLoading: false,
   error: null,
 };
@@ -11,8 +11,18 @@ const campersSlice = createSlice({
   name: "campers",
   initialState: INITIAL_STATE,
   reducers: {
-    setSelectedCamper: (state, action) => {
-      state.selected = action.payload;
+    addSelectedCamper: (state, action) => {
+      if (!state.selected.find((camper) => camper.id === action.payload.id)) {
+        state.selected.push(action.payload);
+      }
+    },
+    removeSelectedCamper: (state, action) => {
+      state.selected = state.selected.filter(
+        (camper) => camper.id !== action.payload
+      );
+    },
+    clearSelected: (state) => {
+      state.selected = [];
     },
   },
   extraReducers: (builder) => {
@@ -48,4 +58,5 @@ const handleRejected = (state, action) => {
 };
 
 export const campersReducer = campersSlice.reducer;
-export const { setSelectedCamper } = campersSlice.actions;
+export const { addSelectedCamper, removeSelectedCamper, clearSelected } =
+  campersSlice.actions;

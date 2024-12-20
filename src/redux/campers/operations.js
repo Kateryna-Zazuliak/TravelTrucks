@@ -6,9 +6,9 @@ const instance = axios.create({
 });
 export const fetchCampers = createAsyncThunk(
   "campers/fetchAll",
-  async (_, thunkApi) => {
+  async (filters, thunkApi) => {
     try {
-      const { data } = await instance.get("/campers");
+      const { data } = await instance.get("/campers", { params: filters });
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
