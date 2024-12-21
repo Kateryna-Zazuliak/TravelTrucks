@@ -4,4 +4,30 @@
   padding-left: 64px;
   padding-bottom: 52px;
   display: flex;
+  gap: 64px;
+  max-width: 1440px;
+}
+.catalogWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.loadMore {
+  margin: 40px auto 0;
+  border-radius: 200px;
+  padding: 16 auto;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  align-items: center;
+  border: 1px solid #dadde1;
+  width: 145px;
+  height: 56px;
+  color: #101828;
+  background-color: transparent;
+  transition: border 0.3s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+}
+.loadMore:hover,
+.loadMore:focus {
+  border: 1px solid #d84343;
 }

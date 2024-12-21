@@ -1,0 +1,16 @@
+.imageWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 48px;
+  margin-bottom: 28px;
+}
+
+.image {
+  border-radius: 10px;
+  width: 292px;
+  height: 312px;
+  width: 292px;
+  height: 320px;
+  object-fit: cover;
+}

@@ -1,7 +1,12 @@
 import css from "./Button.module.css";
-const Button = ({ name, type = "button", className }) => {
+const Button = ({
+  name,
+  type = "button",
+  className = css.base,
+  disabled = false,
+}) => {
   return (
-    <button type={type} className={`${css.base} ${css[className]}`}>
+    <button type={type} className={className} disabled={disabled}>
       {name}
     </button>
   );

@@ -1,29 +1,32 @@
 import css from "./VehicleType.module.css";
 import Icon from "../Icon/Icon";
-import { types } from "../../services/services.js";
+import { featuresConfig } from "../../services/services.js";
 
-const VehicleType = ({ bodyType, setBodyType }) => {
+const VehicleType = ({ bodyType, handleBodyTypeChange }) => {
+  const formConfig = featuresConfig.find((feature) => feature.key === "form");
   return (
     <div className={css.vehicleType}>
       <h3 className={css.title}>Vehicle type</h3>
       <Icon id="icon-divider" className={css.divider} width={360} height={2} />
       <div className={css.list}>
-        {types.map((type) => (
-          <label
-            key={type}
-            className={bodyType === type ? css.active : css.item}
-          >
-            <input
-              type="radio"
-              name="types"
-              value={type}
-              checked={bodyType === type}
-              onChange={() => setBodyType(type)}
-            />
-            <Icon className={css.icon} id={type} width={32} height={32} />
-            <span className={css.text}>{type}</span>
-          </label>
-        ))}
+        {Object.entries(formConfig.iconAndLabelMap).map(
+          ([key, { icon, label }]) => (
+            <label
+              key={key}
+              className={bodyType === key ? css.active : css.item}
+            >
+              <input
+                type="radio"
+                name="types"
+                value={key}
+                checked={bodyType === key}
+                onChange={(e) => handleBodyTypeChange(e.target.value)}
+              />
+              <Icon className={css.icon} id={icon} width={32} height={32} />
+              <span className={css.text}>{label}</span>
+            </label>
+          )
+        )}
       </div>
     </div>
   );

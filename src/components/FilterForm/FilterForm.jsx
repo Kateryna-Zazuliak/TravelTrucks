@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   selectBodyType,
   selectFeatures,
@@ -14,27 +14,31 @@ import VehicleType from "../VehicleType/VehicleType";
 import Icon from "../Icon/Icon";
 import Button from "../Button/Button";
 import css from "./FilterForm.module.css";
+import { useSelector } from "react-redux";
 
-const FilterForm = ({ onFilterSubmit }) => {
-  const dispatch = useDispatch();
+const FilterForm = () => {
   const features = useSelector(selectFeatures);
-  const location = useSelector(selectLocation);
   const bodyType = useSelector(selectBodyType);
+  const location = useSelector(selectLocation);
+  console.log(features);
 
-  const handleToggleFeature = (feature) => {
+  const dispatch = useDispatch();
+
+  const handleLocationChange = (e) => {
+    dispatch(setLocation(e.target.value));
+  };
+
+  const handleBodyTypeChange = (value) => {
+    dispatch(setBodyType(value));
+  };
+
+  const handleFeatureChange = (checked, feature) => {
     dispatch(toggleFeature(feature));
   };
-  const handleSetLocation = (location) => {
-    dispatch(setLocation(location));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Filters applied:", { location, bodyType, features });
   };
-  const handleSetBodyType = (bodyType) => {
-    dispatch(setBodyType(bodyType));
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onFilterSubmit();
-  };
-
   return (
     <form onSubmit={handleSubmit}>
       <div className={css.location}>
@@ -46,7 +50,7 @@ const FilterForm = ({ onFilterSubmit }) => {
             placeholder="City"
             name="location"
             value={location}
-            onChange={(e) => handleSetLocation(e.target.value)}
+            onChange={handleLocationChange}
           />
           <Icon
             className={css.iconLocation}
@@ -57,11 +61,8 @@ const FilterForm = ({ onFilterSubmit }) => {
         </label>
       </div>
       <p className={css.textFilters}>Filters</p>
-      <VehicleEquipment
-        features={features}
-        toggleFeature={handleToggleFeature}
-      />
-      <VehicleType bodyType={bodyType} setBodyType={handleSetBodyType} />
+      <VehicleEquipment features={features} onChange={handleFeatureChange} />
+      <VehicleType bodyType={bodyType} onChange={handleBodyTypeChange} />
       <Button name="Search" type="submit" />
     </form>
   );

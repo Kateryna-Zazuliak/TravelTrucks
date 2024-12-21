@@ -24,14 +24,10 @@ const filtersSlice = createSlice({
         state.features.push(feature);
       }
     },
-    clearFilter: (state) => {
-      state.location = "";
-      state.bodyType = "";
-      state.features = [];
-    },
+    clearFilter: INITIAL_STATE,
   },
 });
 
 export const filtersReducer = filtersSlice.reducer;
-export const { setLocation, setBodyType, toggleFeature, clearFilter } =
+export const { setLocation, setBodyType, toggleFeature, setPage, clearFilter } =
   filtersSlice.actions;

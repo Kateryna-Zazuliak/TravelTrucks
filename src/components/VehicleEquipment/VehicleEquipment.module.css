@@ -37,21 +37,24 @@
   transition: border-color 0.3s ease;
 }
 
-.icon {
+.iconFeature {
   fill: #101828;
 }
-input[value="AC"] + svg {
+.iconFeature.icon-ac {
   stroke: #101828;
 }
-input[value="Microwave"] + svg {
-  stroke: #101828;
-  fill: #ffffff;
-}
-input[value="Gas"] + svg {
+
+.iconFeature.icon-microwave {
   stroke: #101828;
   fill: #ffffff;
 }
-input[value="Water"] + svg {
+
+.iconFeature.icon-gas {
+  stroke: #101828;
+  fill: #ffffff;
+}
+
+.iconFeature.icon-water {
   stroke: #101828;
   fill: #ffffff;
 }

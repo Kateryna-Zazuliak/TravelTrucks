@@ -1,0 +1,148 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  padding: 24px 24px;
+  gap: 24px;
+  border: 1px solid #dadde1;
+  border-radius: 20px;
+  max-width: 888px;
+  min-height: 368px;
+  background-color: #fff;
+}
+
+.image {
+  border-radius: 10px;
+  width: 292px;
+  height: 320px;
+  object-fit: cover;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 524px;
+  height: 32px;
+  margin-bottom: 8px;
+}
+.name,
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: #101828;
+}
+.priceWrapper {
+  display: flex;
+}
+.favoriteButton {
+  padding: 0;
+  margin-left: 12px;
+  margin-top: 4px;
+  background-color: transparent;
+}
+.ratingWrapper {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  text-align: center;
+  width: 524px;
+  margin-bottom: 24px;
+}
+.star {
+  text-align: center;
+  padding-top: 4px;
+  margin-right: 4px;
+}
+.rating {
+  margin-right: 16px;
+  text-decoration: underline;
+  min-width: 140px;
+}
+.location {
+  display: flex;
+  min-width: 118px;
+  padding: 0;
+}
+.iconLocation {
+  stroke: #101828;
+  margin-right: 4px;
+  margin-top: 4px;
+}
+.description {
+  font-size: 16px;
+  color: #475467;
+  margin-bottom: 24px;
+  width: 524px;
+  height: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.iconFeature {
+  fill: #101828;
+}
+.iconFeature.icon-ac {
+  stroke: #101828;
+}
+
+.iconFeature.icon-microwave {
+  stroke: #101828;
+  fill: #ffffff;
+}
+
+.iconFeature.icon-gas {
+  stroke: #101828;
+  fill: #ffffff;
+}
+
+.iconFeature.icon-water {
+  stroke: #101828;
+  fill: #ffffff;
+}
+.features {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.feature {
+  display: flex;
+  gap: 2px;
+  background-color: #f2f4f7;
+  border-radius: 100px;
+  text-align: center;
+  height: 48px;
+  padding: 0 18px;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.showMoreButton {
+  display: flex;
+  justify-content: center;
+  border-radius: 200px;
+  width: 166px;
+  height: 56px;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  align-items: center;
+  color: #ffffff;
+  background-color: #e44848;
+  transition: background-color 0.3s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+}
+
+.showMoreButton:hover,
+.showMoreButton:focus {
+  background-color: #d84343;
+}

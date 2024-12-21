@@ -1,0 +1,102 @@
+.cardDetails {
+  padding-top: 48px;
+  padding-right: 64px;
+  padding-left: 64px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+}
+.container {
+  width: 1312px;
+}
+.detailsFirst {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+}
+.name,
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: #101828;
+}
+.ratingWrapper {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  text-align: center;
+  width: 524px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+.star {
+  text-align: center;
+  padding-top: 4px;
+  margin-right: 4px;
+}
+.rating {
+  margin-right: 16px;
+  text-decoration: underline;
+  min-width: 140px;
+}
+.location {
+  display: flex;
+  min-width: 118px;
+  padding: 0;
+}
+.iconLocation {
+  stroke: #101828;
+  margin-right: 4px;
+  margin-top: 4px;
+}
+.description {
+  font-size: 16px;
+  color: #475467;
+  margin-bottom: 24px;
+  min-height: 60px;
+}
+.detailsSecond {
+  height: 588px;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.detailsThird {
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin-bottom: 56px;
+  border-bottom: 1px solid #dadde1;
+}
+.tab {
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  background-color: transparent;
+  display: inline-block;
+  width: 85px;
+  height: 48px;
+  padding-bottom: 24px;
+}
+
+.active {
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  background-color: transparent;
+  display: inline-block;
+  width: 85px;
+  height: 48px;
+  padding-bottom: 24px;
+  border-bottom: 5px solid #e44848;
+}

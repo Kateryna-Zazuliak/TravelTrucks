@@ -1,0 +1,77 @@
+.featuresBlock {
+  padding: 44px 52px;
+  border-radius: 10px;
+  width: 631px;
+  min-height: 588px;
+  background-color: #f7f7f7;
+}
+.features {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.iconFeatures {
+  fill: #101828;
+}
+
+.iconFeature.icon-ac {
+  stroke: #101828;
+}
+
+.iconFeature.icon-microwave {
+  stroke: #101828;
+  fill: #ffffff;
+}
+
+.iconFeature.icon-gas {
+  stroke: #101828;
+  fill: #ffffff;
+}
+
+.iconFeature.icon-water {
+  stroke: #101828;
+  fill: #ffffff;
+}
+
+.feature {
+  display: flex;
+  gap: 8px;
+  background-color: #f2f4f7;
+  border-radius: 100px;
+  text-align: center;
+  height: 48px;
+  padding: 0 18px;
+  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.divider {
+  padding: 0;
+  fill: #dadde1;
+  margin-bottom: 24px;
+}
+.textFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.detailsItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.details {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}
