@@ -65,3 +65,31 @@ export const getVariantFeatures = (camper) =>
       camper[feature.key] &&
       feature.iconAndLabelMap[camper[feature.key]]
   );
+export const createFilterObject = (filters) => {
+  const { location, bodyType, features } = filters;
+
+  const booleanFeatures = featuresConfig
+    .filter((feature) => feature.type === "boolean")
+    .reduce((acc, feature) => {
+      if (features.includes(feature.key)) {
+        acc[feature.key] = true;
+      }
+      return acc;
+    }, {});
+
+  const variantFeatures = featuresConfig
+    .filter((feature) => feature.type === "variant")
+    .reduce((acc, feature) => {
+      if (filters[feature.key]) {
+        acc[feature.key] = filters[feature.key];
+      }
+      return acc;
+    }, {});
+
+  return {
+    ...(location && { location }),
+    ...(bodyType && { bodyType }),
+    ...booleanFeatures,
+    ...variantFeatures,
+  };
+};

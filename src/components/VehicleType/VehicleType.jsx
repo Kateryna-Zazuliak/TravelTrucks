@@ -1,8 +1,13 @@
 import css from "./VehicleType.module.css";
 import Icon from "../Icon/Icon";
 import { featuresConfig } from "../../services/services.js";
+import { setBodyType } from "../../redux/filters/slice.js";
+import { useDispatch, useSelector } from "react-redux";
+import { selectBodyType } from "../../redux/filters/selectors.js";
 
-const VehicleType = ({ bodyType, handleBodyTypeChange }) => {
+const VehicleType = () => {
+  const bodyType = useSelector(selectBodyType);
+  const dispatch = useDispatch();
   const formConfig = featuresConfig.find((feature) => feature.key === "form");
   return (
     <div className={css.vehicleType}>
@@ -20,7 +25,9 @@ const VehicleType = ({ bodyType, handleBodyTypeChange }) => {
                 name="types"
                 value={key}
                 checked={bodyType === key}
-                onChange={(e) => handleBodyTypeChange(e.target.value)}
+                onChange={() => {
+                  dispatch(setBodyType(key));
+                }}
               />
               <Icon className={css.icon} id={icon} width={32} height={32} />
               <span className={css.text}>{label}</span>

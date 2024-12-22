@@ -1,8 +1,11 @@
+import { useDispatch } from "react-redux";
 import { featuresConfig } from "../../services/services.js";
 import Icon from "../Icon/Icon.jsx";
 import css from "./VehicleEquipment.module.css";
+import { toggleFeature } from "../../redux/filters/slice.js";
 
-const VehicleEquipment = ({ features, handleFeatureChange }) => {
+const VehicleEquipment = ({ features }) => {
+  const dispatch = useDispatch();
   const booleanFeatures = featuresConfig.filter(
     (feature) => feature.type === "boolean"
   );
@@ -21,7 +24,7 @@ const VehicleEquipment = ({ features, handleFeatureChange }) => {
               name="equipment"
               value={key}
               checked={features.includes(key)}
-              onChange={(e) => handleFeatureChange(e.target.checked, key)}
+              onChange={() => dispatch(toggleFeature(key))}
             />
             <Icon
               className={`${css.iconFeature} ${

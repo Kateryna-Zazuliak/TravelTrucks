@@ -6,17 +6,10 @@ const instance = axios.create({
 });
 export const fetchCampers = createAsyncThunk(
   "campers/fetchAll",
-  async (pageNumber, thunkApi) => {
+  async ({ pageNumber, queryString }, thunkApi) => {
     try {
-      //   const queryString = new URLSearchParams({
-      //     location: filters.location || "",
-      //     bodyType: filters.bodyType || "",
-      //     features: filters.features ? filters.features.join(",") : "",
-      //   }).toString();
-      //   console.log(`Query String: ${queryString}`);
-      //   const { data } = await instance.get(`/campers?${queryString}`);
       const { data } = await instance.get(
-        `/campers?page=${pageNumber}&limit=3`
+        `/campers?page=${pageNumber}&limit=3${queryString}`
       );
       return { items: data.items, total: data.total };
     } catch (error) {

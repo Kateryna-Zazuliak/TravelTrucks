@@ -21,8 +21,10 @@ const CatalogPage = () => {
   const error = useSelector(selectError);
   const [campersList, setCampersList] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const [queryString, setQueryString] = useState("");
+
   useEffect(() => {
-    dispatch(fetchCampers(pageNumber))
+    dispatch(fetchCampers({ pageNumber, queryString }))
       .unwrap()
       .then((data) => {
         setCampersList((prev) => [...prev, ...data.items]);
@@ -35,14 +37,30 @@ const CatalogPage = () => {
         console.error(err);
       });
   }, [dispatch, pageNumber]);
+
   const handleLoadMore = () => {
     setPageNumber((prevPage) => prevPage + 1);
   };
+  const handleFilterSubmit = (filters) => {
+    setPageNumber(1);
+    const queryParams = new URLSearchParams({
+      ...(filters.location && { location: filters.location }),
+      ...(filters.bodyType && { bodyType: filters.bodyType }),
+    });
+    if (filters.features) {
+      filters.features.split(",").forEach((feature) => {
+        queryParams.append("features", feature);
+      });
+    }
+    const queryString = queryParams.toString();
+    setQueryString(queryString);
+  };
+
   return (
     <section className={css.catalog}>
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
-      <FilterForm />
+      <FilterForm handleFilterSubmit={handleFilterSubmit} />
       <div className={css.catalogWrapper}>
         {campersList.length > 0 ? (
           <CamperList campers={campersList} />

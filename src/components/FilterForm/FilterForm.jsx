@@ -5,6 +5,7 @@ import {
   selectLocation,
 } from "../../redux/filters/selectors";
 import {
+  clearFilter,
   setBodyType,
   setLocation,
   toggleFeature,
@@ -15,13 +16,13 @@ import Icon from "../Icon/Icon";
 import Button from "../Button/Button";
 import css from "./FilterForm.module.css";
 import { useSelector } from "react-redux";
+import { createFilterObject } from "../../services/services";
 
-const FilterForm = () => {
+const FilterForm = ({ handleFilterSubmit }) => {
+  const dispatch = useDispatch();
   const features = useSelector(selectFeatures);
   const bodyType = useSelector(selectBodyType);
   const location = useSelector(selectLocation);
-
-  const dispatch = useDispatch();
 
   const handleLocationChange = (e) => {
     dispatch(setLocation(e.target.value));
@@ -34,12 +35,19 @@ const FilterForm = () => {
   const handleFeatureChange = (checked, feature) => {
     dispatch(toggleFeature(feature));
   };
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    console.log("Filters applied:", { location, bodyType, features });
+    dispatch(clearFilter());
+    const filters = createFilterObject({
+      location,
+      bodyType,
+      features,
+    });
+    handleFilterSubmit(filters);
   };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={onSubmit}>
       <div className={css.location}>
         <span className={css.textLocation}>Location</span>
         <label key="location">
