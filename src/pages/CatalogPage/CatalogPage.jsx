@@ -21,7 +21,6 @@ const CatalogPage = () => {
   const error = useSelector(selectError);
   const [campersList, setCampersList] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
-
   useEffect(() => {
     dispatch(fetchCampers(pageNumber))
       .unwrap()

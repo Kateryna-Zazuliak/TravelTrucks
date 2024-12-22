@@ -39,7 +39,7 @@ const campersSlice = createSlice({
       })
       .addCase(fetchCamperDetails.fulfilled, (state, action) => {
         state.isLoading = false;
-        const index = state.items.items.findIndex(
+        const index = state.items.findIndex(
           (camper) => camper.id === action.payload.id
         );
         if (index !== -1) {
