@@ -3,6 +3,7 @@ import { fetchCampers, fetchCamperDetails } from "./operations.js";
 const INITIAL_STATE = {
   items: [],
   selected: [],
+  total: 0,
   isLoading: false,
   error: null,
 };
@@ -31,9 +32,10 @@ const campersSlice = createSlice({
       .addCase(fetchCamperDetails.pending, handlePending)
       .addCase(fetchCampers.rejected, handleRejected)
       .addCase(fetchCamperDetails.rejected, handleRejected)
-      .addCase(fetchCampers.fulfilled, (state, action) => {
+      .addCase(fetchCampers.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.items = action.payload;
+        state.items = [...state.items, ...payload.items];
+        state.total = payload.total;
       })
       .addCase(fetchCamperDetails.fulfilled, (state, action) => {
         state.isLoading = false;

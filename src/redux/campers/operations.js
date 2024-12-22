@@ -6,7 +6,7 @@ const instance = axios.create({
 });
 export const fetchCampers = createAsyncThunk(
   "campers/fetchAll",
-  async (_, thunkApi) => {
+  async (pageNumber, thunkApi) => {
     try {
       //   const queryString = new URLSearchParams({
       //     location: filters.location || "",
@@ -15,8 +15,10 @@ export const fetchCampers = createAsyncThunk(
       //   }).toString();
       //   console.log(`Query String: ${queryString}`);
       //   const { data } = await instance.get(`/campers?${queryString}`);
-      const { data } = await instance.get(`/campers`);
-      return data;
+      const { data } = await instance.get(
+        `/campers?page=${pageNumber}&limit=3`
+      );
+      return { items: data.items, total: data.total };
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

@@ -20,7 +20,6 @@ const FilterForm = () => {
   const features = useSelector(selectFeatures);
   const bodyType = useSelector(selectBodyType);
   const location = useSelector(selectLocation);
-  console.log(features);
 
   const dispatch = useDispatch();
 
